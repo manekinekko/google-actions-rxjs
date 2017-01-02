@@ -113,7 +113,7 @@ function textIntent(assistant) {
                 };
                 return [found.splice(r(), 1), found.splice(r(), 1), found.splice(r(), 1)];
             };
-            assistant.ask('\n                    I found too many operators that match your request.\n                    Here are some of them: "' + partial().join('". Or. "') + '.\n                    ' + tryAgain() + '\n                ');
+            assistant.ask('\n                    I found too many operators that match your request.\n                    Here are some of them: "' + partial().join('". Or. "') + '".\n                    ' + tryAgain() + '\n                ');
         }
     }
 }
