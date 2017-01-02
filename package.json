@@ -20,7 +20,7 @@
     "dependencies": {
         "@google-cloud/language": "^0.7.0",
         "@manekinekko/google-actions-server": "^1.0.0",
-        "reds": "^0.2.5",
+        "elasticlunr": "^0.9.5",
         "tree-model": "^1.0.6"
     }
 }
