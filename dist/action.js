@@ -84,7 +84,7 @@ function textIntent(assistant) {
         assistant.tell('Sure. ' + website + '. See you there.');
         return;
     } else if (rawInput.toLowerCase() === 'i need an observable') {
-        rawInput = 'i need to create an observable';
+        rawInput = 'i want an observable';
     } else if (rawInput === 'make me an observable') {
         var inputPrompt = assistant.buildInputPrompt(true, '\n            <audio src="https://freesound.org/data/previews/242/242886_4434589-lq.mp3">\n                Congratulations! You are now an observable\n            </audio>\n        ');
         assistant.ask(inputPrompt);
