@@ -1,0 +1,5 @@
+I want to create a new Observable
+how do I create a new Observable using custom logic
+I want to ignore values that match some previous value
+what if I wanted to spy the values being emitted
+make me an Observable

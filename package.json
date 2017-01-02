@@ -1,0 +1,26 @@
+{
+    "name": "@manekinekko/google-actions-rxjs",
+    "description": "A Google Action to help you find the best RxJS operator for your problem.",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Wassim Chegham",
+    "main": "index.js",
+    "engines": {
+        "node": "> 5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "npm run build",
+        "server": "nodemon dist/action.js",
+        "ngrok": "ngrok http 8080",
+        "build": "babel lib -d dist -w",
+        "sim": "gactions simulate",
+        "preview": "gactions --verbose preview --action_package action.json --invocation_name 'ben' --preview_mins 1234"
+    },
+    "dependencies": {
+        "@google-cloud/language": "^0.7.0",
+        "@manekinekko/google-actions-server": "^1.0.0",
+        "reds": "^0.2.5",
+        "tree-model": "^1.0.6"
+    }
+}
