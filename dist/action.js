@@ -105,15 +105,25 @@ function textIntent(assistant) {
         } else if (found.length === 1) {
             assistant.ask('\n                    Alright, you should try out the "' + found.pop() + '" operator.\n                    ' + tryAgain() + '\n                ');
         } else if (found.length === 2) {
-            assistant.ask('\n                    I found two operators for you. The "' + found.pop() + '" operator and "' + found.pop() + '" operator.\n                    Try to describe more your use use. ' + tryAgain() + '\n                ');
+            assistant.ask('\n                    I found 2 operators for you. The "' + found.pop() + '" operator and "' + found.pop() + '" operator.\n                    ' + tryAgain() + '\n                ');
         } else if (found.length >= 3) {
-            var partial = function partial() {
-                var r = function r() {
-                    return Math.random() * (found.length - 1) | 0;
+            (function () {
+                var partial = function partial() {
+                    var r = function r() {
+                        return Math.random() * (found.length - 1) | 0;
+                    };
+                    return [found.splice(r(), 1), found.splice(r(), 1), found.splice(r(), 1)];
                 };
-                return [found.splice(r(), 1), found.splice(r(), 1), found.splice(r(), 1)];
-            };
-            assistant.ask('\n                    I found too many operators that match your request.\n                    Here are some of them: "' + partial().join('". Or. "') + '".\n                    ' + tryAgain() + '\n                ');
+                var phrase = function phrase() {
+                    return found.length === 3 ? '' : '.Here are 3 of them:';
+                };
+                var smartJoin = function smartJoin() {
+                    var arr = partial();
+                    var last = arr.pop();
+                    return '"' + arr.join('", "') + '" and "' + last + '"';
+                };
+                assistant.ask('\n                    I found ' + found.length + ' operators that match your request\n                    ' + phrase() + ': ' + smartJoin() + '. \n                    ' + tryAgain() + '\n                ');
+            })();
         }
     }
 }
