@@ -1,7 +1,7 @@
 {
   "name": "@manekinekko/google-actions-rxjs",
   "description": "A Google Action to help you find the best RxJS operator for your problem.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Wassim Chegham",
   "main": "index.js",
