@@ -3,3 +3,13 @@ how do I create a new Observable using custom logic
 I want to ignore values that match some previous value
 what if I wanted to spy the values being emitted
 make me an Observable
+I want to know how many values emitted by an observable
+i want to group values based on time and emit a group as nested observables
+i want to change each emitted value to be constant
+i want to group values based on time
+i want to filter some values
+i wan to ignore some values
+tell me more about skip
+I want to ensure there is only one value
+tell me more
+who is André Staltz
