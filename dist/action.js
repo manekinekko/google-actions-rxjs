@@ -176,7 +176,7 @@ var RxJSAction = function () {
                     // don't lookup
                     return false;
                 } else if (['who is André'].includes(hotWord)) {
-                    this.agent.ask('\n                According to his blog staltz.com: Andr\xE9 is a user interface programmer and reactive programming expert.\n                He is known as Andr\xE9 Staltz. Staltz is just a nickname that Andr\xE9 uses on the web since 2004. \n                His real name is Andr\xE9 Medeiros, but he tries to avoid it because \n                it\'s disappointingly unoriginal.\n                ' + this.agent.randomConversationMessage() + '\n            ');
+                    this.agent.ask('\n                According to his blog staltz.com: Andr\xE9 is a user interface programmer and reactive programming expert.\n                He is known as Andr\xE9 Staltz. Staltz is just a nickname that Andr\xE9 uses on the web since 2004. \n                His real name is Andr\xE9 Medeiros, but he tries to avoid it because \n                it\'s disappointingly unoriginal.\n                ' + this.agent.getRandomConversationMessage() + '\n            ');
 
                     // don't loopup
                     return false;
@@ -245,10 +245,10 @@ var RxJSAction = function () {
                         'André Staltz suggests you try the "%s" operator.'];
                         return s[Math.random() * (s.length - 1) | 0];
                     };
-                    this.agent.ask('\n                    ' + successPhrase().replace('%s', op) + '\n                    ' + this.agent.randomConversationMessage() + '\n                ', { lastOperator: found });
+                    this.agent.ask('\n                    ' + successPhrase().replace('%s', op) + '\n                    ' + this.agent.getRandomConversationMessage() + '\n                ', { lastOperator: found });
                     break;
                 case 2:
-                    this.agent.ask('\n                    I found 2 operators for you. The "' + found[0] + '" operator and "' + found[1] + '" operator.\n                    ' + this.agent.randomConversationMessage() + '\n                ', { lastOperator: found });
+                    this.agent.ask('\n                    I found 2 operators for you. The "' + found[0] + '" operator and "' + found[1] + '" operator.\n                    ' + this.agent.getRandomConversationMessage() + '\n                ', { lastOperator: found });
                     break;
                 default:
                     var partial = function partial(found) {
@@ -266,7 +266,7 @@ var RxJSAction = function () {
                         return '"' + arr.join('", "') + '" and "' + last + '"';
                     };
                     var arr = partial(found);
-                    this.agent.ask('\n                    I found ' + found.length + ' operators that match your request' + phrase(arr) + ' \n                    ' + smartJoin(arr) + '. \n                    ' + this.agent.randomConversationMessage() + '\n                ', { lastOperator: arr });
+                    this.agent.ask('\n                    I found ' + found.length + ' operators that match your request' + phrase(arr) + ' \n                    ' + smartJoin(arr) + '. \n                    ' + this.agent.getRandomConversationMessage() + '\n                ', { lastOperator: arr });
             }
         }
 
