@@ -85,7 +85,6 @@ var RxJSAction = function () {
         value: function lookupHotWords(rawInput) {
             var lookupOptions = {
                 threshold: function threshold(entry) {
-                    console.log('entry==>', entry);
                     return entry.score > 0.5;
                 },
                 fields: {
@@ -106,7 +105,6 @@ var RxJSAction = function () {
         value: function lookupUserInput(rawInput, responseCallback) {
             var lookupOptions = {
                 threshold: function threshold(entry) {
-                    console.log('entry==>', entry);
                     return entry.score > 0;
                 },
                 fields: {
@@ -227,8 +225,6 @@ var RxJSAction = function () {
         key: 'lookupCallback',
         value: function lookupCallback(found, rawInput) {
 
-            console.log('found', found, rawInput);
-
             switch (found.length) {
                 case 0:
                     this.agent.ask('\n                    I heard you say: "' + rawInput + '". Could you be more specific?\n                ', { lastOperator: null });
@@ -236,13 +232,7 @@ var RxJSAction = function () {
                 case 1:
                     var op = found[0];
                     var successPhrase = function successPhrase() {
-                        var s = [
-                        // 'Alright, you should try out the "%s" operator.',
-                        // 'Well, the "%s" operator is what you are looking for.',
-                        // 'For this specific use case, the "%s" operator would be fine.',
-                        // 'May be the "%s" operator could help.',
-                        // 'I believe the "%s" operator is perfect for that.',
-                        'André Staltz suggests you try the "%s" operator.'];
+                        var s = ['Alright, you should try out the "%s" operator.', 'Well, the "%s" operator is what you are looking for.', 'For this specific use case, the "%s" operator would be fine.', 'May be the "%s" operator could help.', 'I believe the "%s" operator is perfect for that.', 'André Staltz suggests you try the "%s" operator.', 'Kwon Oh-joong thinks the "%s" operator is what you are looking for.'];
                         return s[Math.random() * (s.length - 1) | 0];
                     };
                     this.agent.ask('\n                    ' + successPhrase().replace('%s', op) + '\n                    ' + this.agent.getRandomConversationMessage() + '\n                ', { lastOperator: found });
@@ -287,5 +277,8 @@ var RxJSAction = function () {
 
     return RxJSAction;
 }();
+
+// instantiate
+
 
 new RxJSAction().listen();
